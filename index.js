@@ -4,12 +4,14 @@ const express = require('express')
 const users = require('./data/db');
 
 const port = process.env.PORT || 5000;
+const location = process.env.LOCATION || "New York";
+
 
 const server = express();
 server.use(express.json()); // add this line to make POST and PUT work
 
 server.get('/',(req,res) => {
-    res.send('Hello World from Express!')
+    res.send(`Hello World from ${location}!`)
 })
 
 let hobbits = [
